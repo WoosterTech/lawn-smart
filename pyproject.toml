@@ -1,73 +1,73 @@
-# ---- Project Info and Dependencies ----
+[project]
+name = "lawn-smart"
+description = "A smart watering engine for lawn sprinkler systems."
+readme = "README.md"
+requires-python = ">=3.11,<4.0"
+license = "MIT"
+authors = [
+  { name = "Karl Wooster", email = "karl@woostertech.com" },
+]
+# https://pypi.org/classifiers/
+# Adjust as needed:
+classifiers = [
+  # Adjust as needed:
+  "Development Status :: 4 - Beta",
+  # "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+  # Include this to avoid accidentally publishing to PyPI:
+  # "Private :: Do Not Upload",
+]
+# ---- Main dependencies ----
+dependencies = [
+  "attrmagic",
+  "pydantic>=2.11.7",
+  "rich>=14.0.0",
+]
+dynamic = ["version"]
+
+# ---- Dev dependencies ----
 
 [project.urls]
 Repository = "https://github.com/WoosterTech/lawn-smart"
 # Homepage = "https://..."
 # Documentation = "https://..."
 
-[project]
-name = "lawn-smart"
-description = "A smart watering engine for lawn sprinkler systems."
-authors = [
-    { name="Karl Wooster", email="karl@woostertech.com" },
-]
-readme = "README.md"
-license = "MIT"
-requires-python = ">=3.11,<4.0"
-dynamic = ["version"]
-
-# https://pypi.org/classifiers/
-# Adjust as needed:
-classifiers = [
-    # Adjust as needed:
-    "Development Status :: 4 - Beta",
-    # "Development Status :: 5 - Production/Stable",
-    "Intended Audience :: Developers",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Typing :: Typed",
-    # Include this to avoid accidentally publishing to PyPI:
-    # "Private :: Do Not Upload",
-]
-
-
-# ---- Main dependencies ----
-
-dependencies = [
-]
-
-
-# ---- Dev dependencies ----
-
-[dependency-groups]
-dev = [
-    "pytest>=8.3.5",
-    "pytest-sugar>=1.0.0",
-    "ruff>=0.11.9",
-    "codespell>=2.4.1",
-    "rich>=14.0.0",
-    "basedpyright>=1.31.0",
-    "funlog>=0.2.1",
-    "deptry>=0.23.0",
-]
-
 [project.scripts]
 # Add script entry points here:
 lawn-smart = "lawn_smart:cli"
-
 
 # ---- Build system ----
 
 # Dynamic versioning from:
 # https://github.com/ninoseki/uv-dynamic-versioning/
 
+[dependency-groups]
+dev = [
+  "basedpyright>=1.31.0",
+  "codespell>=2.4.1",
+  "deptry>=0.23.0",
+  "funlog>=0.2.1",
+  "pytest-sugar>=1.0.0",
+  "pytest>=8.3.5",
+  "rich>=14.0.0",
+  "ruff>=0.11.9",
+]
+
 [build-system]
 requires = ["hatchling", "uv-dynamic-versioning"]
 build-backend = "hatchling.build"
+
+[tool.codespell]
+# Add here as needed:
+# ignore-words-list = "foo,bar"
+# skip = "foo.py,bar.py"
 
 [tool.hatch.version]
 source = "uv-dynamic-versioning"
@@ -75,30 +75,28 @@ source = "uv-dynamic-versioning"
 # this may cause false warnings in IDEs.
 # https://github.com/ninoseki/uv-dynamic-versioning/issues/21
 
+[tool.hatch.build.targets.wheel]
+# The source location for the package.
+packages = ["src/lawn_smart"]
+
+# ---- Settings ----
+
+[tool.pytest.ini_options]
+filterwarnings = []
+norecursedirs = []
+python_classes = ["Test*"]
+python_files = ["*.py"]
+python_functions = ["test_*"]
+testpaths = [
+  "src",
+  "tests",
+]
+
+[tool.uv.sources]
+attrmagic = { git = "https://github.com/WoosterTech/AttrMagic.git" }
+
 [tool.uv-dynamic-versioning]
 vcs = "git"
 style = "pep440"
 bump = "true"
 
-[tool.hatch.build.targets.wheel]
-# The source location for the package.
-packages = ["src/lawn_smart"]
-
-
-# ---- Settings ----
-
-[tool.codespell]
-# Add here as needed:
-# ignore-words-list = "foo,bar"
-# skip = "foo.py,bar.py"
-
-[tool.pytest.ini_options]
-python_files = ["*.py"]
-python_classes = ["Test*"]
-python_functions = ["test_*"]
-testpaths = [
-    "src",
-    "tests",
-]
-norecursedirs = []
-filterwarnings = []
