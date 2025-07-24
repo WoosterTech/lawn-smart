@@ -1,0 +1,9 @@
+# Changes here will be overwritten by Copier. Do not edit manually.
+_commit: 3029b04
+_src_path: gh:WoosterTech/simple-modern-uv
+package_author_email: karl@woostertech.com
+package_author_name: Karl Wooster
+package_description: A smart watering engine for lawn sprinkler systems.
+package_github_org: WoosterTech
+package_module: lawn_smart
+package_name: lawn-smart
