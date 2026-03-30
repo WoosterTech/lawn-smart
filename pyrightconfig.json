@@ -1,7 +1,7 @@
 {
-    "include": ["src", "tests", "devtools"],
-    "reportIgnoreCommentWithoutRule": false,
-    "reportUnnecessaryTypeIgnoreComment": false,
-    "reportMissingTypeStubs": false,
-    "reportUnusedCallResult": false,
+    "include": ["src", "tests"],
+    "verboseOutput": true,
+    "venvPath": ".",
+    "venv": ".venv",
+    "pythonVersion": "3.12"
 }

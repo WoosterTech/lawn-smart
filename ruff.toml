@@ -11,6 +11,8 @@ select = [
   "B",  # https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
   "I",  # https://docs.astral.sh/ruff/rules/#isort-i
   # Other possibilities:
+  "RUF",  # https://docs.astral.sh/ruff/rules/#ruff-ruf
+  "BLE",
   # "D" # https://docs.astral.sh/ruff/rules/#pydocstyle-d
   # "Q" # https://docs.astral.sh/ruff/rules/#flake8-quotes-q
   # "COM" # https://docs.astral.sh/ruff/rules/#flake8-commas-com

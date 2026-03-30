@@ -1,27 +1,27 @@
-## Installing uv and Python
+## Installing uv
 
-This project is set up to use [**uv**](https://docs.astral.sh/uv/), the new package
-manager for Python. `uv` replaces traditional use of `pyenv`, `pipx`, `poetry`, `pip`,
-etc. This is a quick cheat sheet on that:
+This project is set up to use [**uv**](https://docs.astral.sh/uv/), the new package manager for Python. `uv` replaces traditional use of `pyenv`, `pipx`, `poetry`, `pip`, etc.
 
-On macOS or Linux, if you don't have `uv` installed, a quick way to install it:
+See [uv](https://docs.astral.sh/uv/getting-started/installation/) for help installing `uv`.
 
-```shell
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+## Installing Python
 
-For macOS, you prefer [brew](https://brew.sh/) you can install or upgrade uv with:
+`uv` will handle installing Python for us, but we can indicate a preferred version:
 
-```shell
-brew update
-brew install uv
-```
+`uv python install 3.13`
 
-See [uv's docs](https://docs.astral.sh/uv/getting-started/installation/) for more
-installation methods and platforms.
+Replace `3.13` with a preferred version. This template will force `3.11` or higher, but lower than `4.0`.
 
-Now you can use uv to install a current Python environment:
+## Installing lawn-smart
 
-```shell
-uv python install 3.13 # Or pick another version.
-```
+Now that `uv` and Python are installed, we can install the project:
+
+`uv sync`
+
+That will:
+
+1. Create a `.venv` folder at the root of the project (by default).
+1. Install all required packages (as indicated in [pyproject.toml](./pyproject.toml)) into that virtual environment.
+    - Includes `dev` dependencies
+
+Make sure that your IDE (VSCode/PyCharm/etc.) know to use that [.venv](./.venv/) folder as the workspace folder for Python files.

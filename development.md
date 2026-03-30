@@ -2,19 +2,13 @@
 
 ## Setting Up uv
 
-This project is set up to use [uv](https://docs.astral.sh/uv/) to manage Python and
-dependencies. First, be sure you
-[have uv installed](https://docs.astral.sh/uv/getting-started/installation/).
+This project is set up to use [uv](https://docs.astral.sh/uv/) to manage Python anddependencies. First, be sure you [have uv installed](https://docs.astral.sh/uv/getting-started/installation/).
 
-Then [fork the WoosterTech/lawn-smart
-repo](https://github.com/WoosterTech/lawn-smart/fork) (having your own
-fork will make it easier to contribute) and
-[clone it](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+Then [fork the WoosterTech/lawn-smart repo](https://github.com/WoosterTech/lawn-smart/fork) (having your own fork will make it easier to contribute) and [clone it](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 ## Basic Developer Workflows
 
-The `Makefile` simply offers shortcuts to `uv` commands for developer convenience.
-(For clarity, GitHub Actions don't use the Makefile and just call `uv` directly.)
+The `Makefile` simply offers shortcuts to `uv` commands for developer convenience. (For clarity, GitHub Actions don't use the Makefile and just call `uv` directly.)
 
 ```shell
 # First, install all dependencies and set up your virtual environment.
@@ -50,15 +44,15 @@ uv tool install --editable .
 
 # Dependency management directly with uv:
 # Add a new dependency:
-uv add package_name
+uv add typer
 # Add a development dependency:
-uv add --dev package_name
+uv add --dev pytest
 # Update to latest compatible versions (including dependencies on git repos):
 uv sync --upgrade
 # Update a specific package:
-uv lock --upgrade-package package_name
+uv lock --upgrade-package typer
 # Update dependencies on a package:
-uv add package_name@latest
+uv add typer@latest
 
 # Run a shell within the Python environment:
 uv venv
@@ -70,9 +64,8 @@ See [uv docs](https://docs.astral.sh/uv/) for details.
 ## Agent Rules
 
 See [.cursor/rules](.cursor/rules) for agent rules.
-These are written for [Cursor](https://www.cursor.com/) but are also used by other
-agents because the Makefile will generate `CLAUDE.md` and `AGENTS.md` from the same
-rules.
+
+These are written for [Cursor](https://www.cursor.com/) but are also used by other agents because the Makefile will generate `CLAUDE.md` and `AGENTS.md` from the same rules.
 
 ```shell
 make agent-rules
@@ -80,14 +73,11 @@ make agent-rules
 
 ## IDE setup
 
-If you use VSCode or a fork like Cursor or Windsurf, you can install the following
-extensions:
+If you use VSCode or a fork like Cursor or Windsurf, you can install the following extensions:
 
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
-- [Based Pyright](https://marketplace.visualstudio.com/items?itemName=detachhead.basedpyright)
-  for type checking. Note that this extension works with non-Microsoft VSCode forks like
-  Cursor.
+- [Based Pyright](https://marketplace.visualstudio.com/items?itemName=detachhead.basedpyright) for type checking.  Note that this extension works with non-Microsoft VSCode forks like Cursor.
 
 ## Documentation
 
@@ -98,4 +88,4 @@ extensions:
 * * *
 
 *This file was built with
-[simple-modern-uv](https://github.com/jlevy/simple-modern-uv).*
+[simple-modern-uv](https://github.com/WoosterTech/simple-modern-uv).*
